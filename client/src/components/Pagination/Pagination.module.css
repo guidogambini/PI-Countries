@@ -1,0 +1,29 @@
+.pagination, .number {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-style: italic;
+}
+
+.pagination {
+    margin-left: -1em;
+    margin-right: 2em;
+    margin-top: -2.5em;
+}
+
+.boton {
+    background-color: rgba(56, 50, 50, 0.774);
+    cursor: pointer; 
+    font-weight: 600;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: white;
+    margin-left: 0.4em;
+    border-radius: 50%;
+}
+
+.boton:hover {
+    background-color: rgba(255, 255, 255, 0.486);
+    color: black;
+    transition: 0.25s;
+}

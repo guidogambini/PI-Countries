@@ -23,7 +23,13 @@ async function getCountries(req, res, next) {
                     poblation: c.population
                 }
                 }));
-            const countries = await Country.findAll();
+            const countries = await Country.findAll({
+                    include: { model: Activity,
+                               attributes: ['name', 'difficulty', 'duration', 'season'],
+                               through: {
+                                  attributes: [] }
+                             }
+            });
             return res.status(200).send(countries);
         };
 
@@ -36,7 +42,7 @@ async function getCountries(req, res, next) {
         });
         nameCountries.length ?
         res.status(200).send(nameCountries) :
-        res.status(404).send('Country not found');
+        res.status(404).json({error: 'Country not found'});
 
     } catch (error) {
         next(error);
@@ -60,7 +66,7 @@ async function getCountryById(req, res, next) {
         });
         myCountry.length ?
         res.status(200).send(myCountry) :
-        res.status(404).json({error: `can not get ${id}`});
+        res.status(404).json({error: `id ${id} not found`});
 
     } catch (error) {
         next(error);

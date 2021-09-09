@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Nanum+Gothic&display=swap');
+
+
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contenedor2 {
+    display: flex;
+    align-content: space-between;
+    justify-content: space-around;
+}
+
+.lista {
+  font-family: 'Merriweather', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-around;
+  list-style: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.74);
+  width: 350px;
+  height: 300px;
+  margin-top: 8em;
+  margin-bottom: 5em;
+  border-radius: 0.5em;
+  margin-left: -5.9em;
+}
+
+.flag {
+    height: 220px;
+    margin-top: 10em;
+    margin-bottom: 10em;
+    margin-right: 10em;
+    margin-left: 2em;
+    border-radius: 55px 5px 50px;
+}
+
+.boton {
+    background-color: rgba(255, 255, 255, 0.384);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 6rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    color: rgba(5, 5, 5, 0.849);
+    margin-right: 5em;
+    margin-bottom: 25em;
+}
+
+.boton:hover {
+    background-color: rgba(255, 255, 255, 0.486);
+    color: black;
+    transition: 0.25s;
+}
+
+.pais {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.activity {
+    margin-top: 10em;
+    margin-bottom: -7em;
+    margin-left: 2em;
+    list-style: none;
+    color: rgba(255, 255, 255, 0.877);
+    background-color: rgba(29, 26, 26, 0.945);
+    width: 140px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-evenly;
+    font-family: 'Merriweather', serif;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    padding: 1.5em;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 1.2em;
+}
+
+.nombre {
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 0.9em;
+    text-decoration: underline;
+}
+
+.caja {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: -1.9em;
+    margin-bottom: 4.6em;
+    justify-content: space-around;
+}

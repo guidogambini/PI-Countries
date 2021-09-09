@@ -1,0 +1,152 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.74);
+    width: 650px;
+    height: 500px;
+    border-radius: 0.8rem;
+    font-weight: bold;
+    margin-top: -2rem;
+    font-size: 16px;
+}
+
+.boton {
+    background-color: rgba(255, 255, 255, 0.61);
+    border-radius: 0.5rem;
+    cursor: pointer; 
+    font-weight: 600;
+    width: 6rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    color: rgba(245, 245, 245, 0.849);
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+.boton:hover {
+    background-color: rgba(255, 255, 255, 0.486);
+    color: black;
+    transition: 0.25s;
+}
+
+.danger {
+    color: red;
+    display: flex;
+    margin-top: 0.1rem;
+    font-size: 14px;
+}
+
+.check {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    margin-bottom: 0.1em;
+}
+
+
+
+.submit {
+    border-radius: 0.5rem;
+    cursor: pointer; 
+    font-weight: 600;
+    width: 6rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    color: black;
+    margin-left: 2em;
+    margin-top: 2em;
+    margin-bottom: 2rem;
+}
+
+
+.input, .dif, .dur, .coun {
+    margin-top: 1.5rem;
+    margin-bottom: -0.6em;
+    border-radius: 0.5rem;
+    width: 13rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    outline: none;
+}
+
+.dif:hover, .dur:hover, .coun:hover, .submit:hover, .input:hover, .cierre:hover {
+    background-color: rgba(255, 255, 255, 0.486);
+    color: black;
+    transition: 0.25s;
+}
+
+.lista {
+    background-color: rgba(255, 255, 255, 0.74);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.cierre {
+    border-radius: 5rem;
+    cursor: pointer; 
+    width: 2rem;
+    height: 2rem;
+    text-decoration: none;
+    color: black;
+    margin-left: 1.0em;
+    margin-top: 0.3em;
+    margin-right: 0.5em;
+}
+
+.nombre {
+    margin-left: 1.0em;
+}
+
+.listagen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    background-color: rgba(0, 0, 0, 0.678);
+    margin-left: 2em;
+    border-width: medium;
+    border-color: blanchedalmond;
+    border-radius: 2em;
+}
+
+.paisname {
+    color: black;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(153, 136, 136, 0.74);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.2em;
+    padding: 1rem
+}
+
+.options {
+    font-family: 'Merriweather', serif;
+    font-weight: bolder;
+    background: rgba(255, 255, 255, 0.178);
+}

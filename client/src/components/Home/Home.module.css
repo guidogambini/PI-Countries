@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@1,200&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+
+.title {
+
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Azeret Mono', monospace;
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.buttons {
+    display: flex;
+    justify-content:stretch;
+    margin-top: 0.5em;
+}
+
+.buttons1 {
+	text-transform: uppercase;
+	text-decoration: none;
+	background: none;
+	padding: 2px;
+	border-radius: 8px;
+    display: flex;
+    align-items: center;
+	border: none;
+	transition: all 0.4s ease 0s;
+    cursor: pointer;
+}
+
+.buttons2 {
+	text-transform: uppercase;
+	text-decoration: none;
+	background: none;
+	padding: 10px;
+	border-radius: 8px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+    cursor: pointer;
+}
+
+.countrysearch {
+    text-transform: uppercase;
+	text-decoration: none;
+	background: none;
+	padding: 10px;
+	border-radius: 8px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+    cursor: pointer;
+    margin-left: 20.3em;
+}
+
+/* .buttons1:hover, .buttons2:hover {
+    background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+} */
+
+.boton1 {
+    
+    background-color: rgba(56, 50, 50, 0.774);
+    border: none;
+    cursor: pointer; 
+    font-weight: 600;
+    width: 8rem;
+    height: 2.5rem;
+    color: white;
+}
+
+.boton2 {
+    
+    background-color: rgba(56, 50, 50, 0.774);
+    border: none;
+    cursor: pointer; 
+    font-weight: 600;
+    width: 20rem;
+    height: 2.5rem;
+    color: white;
+}
+
+.boton1:hover, .boton2:hover {
+    background-color: rgba(255, 255, 255, 0.486);
+    color: black;
+    transition: 0.25s;
+}
+
+.countries {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5em;
+    margin-top: 2em;
+}
+
+.navegador {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    width: 1200px;
+    margin-left: 2em;
+    height: 35px;
+}
+
+
+.alph, .pop {
+    border-radius: 0.5rem;
+    width: 13rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    outline: none;
+}
+
+.alph:hover, .pop:hover {
+    background-color: rgba(255, 255, 255, 0.486);
+    color: black;
+    transition: 0.25s;
+}
+
+.options {
+    font-family: 'Merriweather', serif;
+    font-weight: bolder;
+    background: rgba(255, 255, 255, 0.178);
+}
