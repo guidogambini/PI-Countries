@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createActivity, getCountries } from '../../actions';
 import { Link, useHistory } from 'react-router-dom';
 import styles from './Form.module.css';
-import { IoCheckmarkDoneSharp, IoHomeSharp, IoCloseCircleSharp } from "react-icons/io5";
+import { IoCheckmarkDoneSharp, IoHomeSharp, IoAirplaneOutline } from "react-icons/io5";
+import Box from '../Box/Box';
 
 
 
@@ -38,7 +39,11 @@ const Form = () => {
     }
     return errors;
   };
+  
 
+  const [visibility, setVisibility] = useState(false);
+
+  const [boxStyle, setBoxStyle] = useState(2);
 
   const [input, setInput] = useState({
     name: '',
@@ -54,9 +59,7 @@ const Form = () => {
 
   function handleOnChange(e) {
 
-    /* if (e.target.name === 'name') {
-      if (!/^[a-zA-Z\s]*$/.test(e.target.value)) return null;
-    } */
+
     setInput({ ...input, [e.target.name]: e.target.value});
     
     setErrors(validate({
@@ -75,13 +78,15 @@ const Form = () => {
         && input.difficulty < 6
         && input.duration && input.season 
         && input.country.length) {
-      dispatch(createActivity(input));
+      /* dispatch(createActivity(input));
       setInput({ name: '', difficulty: '', duration: '', season: '', country: '' });
-      alert('Activity created successfully');
-      history.push('/home');
+      alert('Enjoy your trip!');
+      history.push('/home'); */
+      setVisibility(true)
     }
     else {
-      alert('Check all the required fields');
+      setBoxStyle(3);
+      setVisibility(true);
     }
   }
 
@@ -98,8 +103,17 @@ const Form = () => {
 
   function handleOnSelect(e) {
     if (e.target.name === 'country') {
-      input.country.length >= 3? alert('Limit: 3 countries') :
-      setInput({...input, country: [...input.country, e.target.value]});
+      if (input.country.includes(e.target.value)) {
+        setBoxStyle(1);
+        setVisibility(true);
+      }
+      else if (input.country.length >= 3) {
+        setBoxStyle(1);
+        setVisibility(true);
+      }
+      else {
+        setInput({...input, country: [...input.country, e.target.value]});
+      }
     }
     else {
       setInput({
@@ -116,27 +130,48 @@ const Form = () => {
       country: input.country.filter(e => e !== country)
     })
   };
+
+  function handleOnDone(e) {
+      
+      e.preventDefault();
+      dispatch(createActivity(input));
+      setInput({ name: '', difficulty: '', duration: '', season: '', country: '' });
+      setVisibility(false);
+      history.push('/home');
+
+  };
+
+  function handleOnDeny(e) {
+      
+
+    if (boxStyle === 2) setInput({ name: '', difficulty: '', duration: '', season: '', country: '' });
+    setVisibility(false);
+    setBoxStyle(2);
+
+  };
   
   
   return (
     <>
+  
     <Link to='/home' className={styles.boton}><IoHomeSharp /></Link>
     <div className={styles.contenedor}>
       <form onSubmit={handleOnSubmit} className={styles.formulario}>
-        <input name='name' placeholder='Name your activity...' autoComplete="off" value={input.name} onChange={handleOnChange} className={styles.input} />
+        <input name='name' placeholder='Name your tourist activity...' autoComplete="off" value={input.name} onChange={handleOnChange} className={!errors.name? styles.input : styles.errors} />
         {errors.name && (
           <p className={styles.danger}>{errors.name}</p>
         )}
 
         
-        <input name='difficulty' placeholder='Difficulty level (1-5)' autoComplete="off" value={input.difficulty} onChange={handleOnChange} className={styles.input} />
+        <input name='difficulty' placeholder='Difficulty level (1-5)' autoComplete="off" value={input.difficulty} onChange={handleOnChange} className={!errors.difficulty? styles.input : styles.errors} />
         {errors.difficulty && (
           <p className={styles.danger}>{errors.difficulty}</p>
         )}
         
         <select name='duration' value={input.duration} onChange={handleOnSelect} className={styles.dur} >
         <optgroup className={styles.options}>
-          <option selected value='1'>1 h</option>
+          <option hidden >Estimated duration...</option>
+          <option value='1'>1 h</option>
           <option value='2'>2 h</option>
           <option value='3'>3 h</option>
           <option value='4'>4 h</option>
@@ -150,13 +185,12 @@ const Form = () => {
           <option value='12'>12 h</option>
         </optgroup>
         </select>
-        <label>Estimated duration in hours</label>
 
         <div className={styles.check}>
-          <label><input type='checkbox' name='summer' value= 'summer' onChange={handleOnCheck} />Summer</label>
-          <label><input type='checkbox' name='autumn' value= 'autumn' onChange={handleOnCheck} />Autumn</label>
-          <label><input type='checkbox' name='winter' value= 'winter' onChange={handleOnCheck} />Winter</label>
-          <label><input type='checkbox' name='spring' value= 'spring' onChange={handleOnCheck} />Spring</label>
+          <label><input type='radio' name='season' value= 'summer' onChange={handleOnCheck} />Summer</label>
+          <label><input type='radio' name='season' value= 'autumn' onChange={handleOnCheck} />Autumn</label>
+          <label><input type='radio' name='season' value= 'winter' onChange={handleOnCheck} />Winter</label>
+          <label><input type='radio' name='season' value= 'spring' onChange={handleOnCheck} />Spring</label>
         </div>
         {errors.season && (
           <p className={styles.danger}>{errors.season}</p>
@@ -164,9 +198,10 @@ const Form = () => {
         
         <select name='country' value={input.country} onChange={handleOnSelect} className={styles.coun} >
         <optgroup className={styles.options}>
+          <option hidden >Select a country...</option>
           {
             countries && countries.map(c => (
-              <option value={c.name}>{c.name}</option>
+              <option value={c.name} key={c.id}>{c.name}</option>
             ))
           }
         </optgroup>
@@ -179,10 +214,10 @@ const Form = () => {
           input.country.length && input.country.map((selected, i) => {
             return  (
                       <>
-                      {i === 0 && <h3 className={styles.paisname}>Countries to visit:</h3>}
-                      <div className={styles.lista}>
+                      {i === 0 && <h3 className={styles.paisname}><IoAirplaneOutline /></h3>}
+                      <div className={styles.lista} key={i}>
                       <p className={styles.nombre}>{selected}</p>
-                      <button onClick={() => handleOnClose(selected)} className={styles.cierre}><IoCloseCircleSharp /></button>
+                      <button onClick={() => handleOnClose(selected)} className={styles.cierre}>X</button>
                       </div> 
                       </>
                     )
@@ -190,6 +225,10 @@ const Form = () => {
       }
       </div>
     </div>
+    <div className={visibility? styles.shown: styles.hidden}>
+      <Box message={boxStyle === 2 ? 'Confirm the trip?' : boxStyle === 1 ? 'Three different contries limit' : 'All the fields are required'} handleOnDone={boxStyle === 2 ? handleOnDone : null} handleOnDeny={handleOnDeny}  />
+    </div>
+    <p className={styles.copy}>Copyright © 2021 Global App</p>
     </>
   )
 

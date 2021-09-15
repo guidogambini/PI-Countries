@@ -23,3 +23,17 @@
     color: black;
     transition: 0.25s;
 }
+
+.shown {
+    display: flex;
+    position:absolute;
+    z-index:100;
+    top: 20%;
+    right: 40%;
+}
+
+.hidden {
+    display: none;
+    position: fixed;
+    top: 50%;
+}

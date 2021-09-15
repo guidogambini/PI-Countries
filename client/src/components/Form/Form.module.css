@@ -5,13 +5,15 @@
     
 }
 
+
+
 .formulario {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.74);
-    width: 650px;
+    width: 600px;
     height: 500px;
     border-radius: 0.8rem;
     font-weight: bold;
@@ -87,6 +89,19 @@
     outline: none;
 }
 
+.errors {
+    margin-top: 1.5rem;
+    margin-bottom: -0.6em;
+    border-radius: 0.5rem;
+    width: 13rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    outline: none;
+}
+
 .dif:hover, .dur:hover, .coun:hover, .submit:hover, .input:hover, .cierre:hover {
     background-color: rgba(255, 255, 255, 0.486);
     color: black;
@@ -107,15 +122,20 @@
 }
 
 .cierre {
-    border-radius: 5rem;
+    border-radius: 50%;
     cursor: pointer; 
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
     text-decoration: none;
-    color: black;
+    color: rgba(0, 0, 0, 0.74);
     margin-left: 1.0em;
     margin-top: 0.3em;
     margin-right: 0.5em;
+    font-weight: bolder;
+}
+
+.cierre:hover {
+    color: rgba(0, 0, 0, 0.596);
 }
 
 .nombre {
@@ -141,7 +161,7 @@
     background-color: rgba(153, 136, 136, 0.74);
     margin-left: 0.5em;
     margin-right: 0.5em;
-    border-radius: 0.2em;
+    border-radius: 2.2em;
     padding: 1rem
 }
 
@@ -149,4 +169,23 @@
     font-family: 'Merriweather', serif;
     font-weight: bolder;
     background: rgba(255, 255, 255, 0.178);
+}
+
+.shown {
+    display: flex;
+    position: fixed;
+    top: 20%;
+    right: 40%;
+}
+
+.hidden {
+    display: none;
+    position: fixed;
+    top: 50%;
+}
+
+.copy {
+    color: blanchedalmond;
+    margin-left: 41.7%;
+    font-size: 13px;
 }

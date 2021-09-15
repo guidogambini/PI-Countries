@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Nanum+Gothic&display=swap');
+
+
+.container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+    
+    width: 300px;
+
+    cursor: pointer;
+
+    height: 200px;
+
+    background-image: url(https://thumbs.dreamstime.com/b/yellow-textured-plain-background-wallpaper-design-use-text-image-yellow-textured-plain-background-wallpaper-137515345.jpg);
+
+    /* background-color: hsl(229, 64%, 43%); */
+
+    border-radius: 1rem;
+
+    backdrop-filter: blur(6.8px);
+
+    border: 2px solid rgb(0, 0, 0);
+
+    padding-left: 20px;
+
+    padding-right: 20px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+}
+
+.container:hover {
+    
+    border-radius: 0;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-around;
+}
+
+.boton1, .boton2, .boton1bis, .boton2bis {
+    border-radius: 100%;
+    cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    color: black;
+    
+}
+
+.boton1:hover, .boton2:hover, .boton1bis:hover, .boton2bis:hover {
+    background-color: rgba(0, 0, 0, 0.205);
+    color: black;
+    transition: 0.25s;
+}
+
+.boton1 {
+    /* margin-right: 0.6em; */
+    background-color: rgba(255, 255, 255, 0.692);
+}
+
+.boton2 {
+    /* margin-left: 0.6em; */
+    background-color: rgba(255, 255, 255, 0.692);
+}
+
+.boton1bis {
+    margin-right: 1em;
+    background-color: rgb(26, 134, 167);
+}
+
+.boton2bis {
+    margin-left: 1em;
+    background-color: rgb(182, 23, 23);
+}
+
+.message {
+    font-family: 'Merriweather';
+    font-size: 15px;
+    margin-bottom: 0.9em;
+    border: 2px solid rgba(0, 0, 0, 0.767);
+    padding: 4px;
+    border-radius: 5em;
+}
+
+.maleta {
+    position: fixed;
+    font-size: 50px;
+    bottom: -0.2em;
+    left: 0.1em;
+}
+
+.avion {
+    position: fixed;
+    font-size: 50px;
+    bottom: -0.2em;
+    right: 0.1em;
+}

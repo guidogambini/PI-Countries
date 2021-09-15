@@ -77,7 +77,7 @@ export const orderBy = (orderType, order) => {
 export const createActivity = (activity) => {
     return async function (dispatch) {
         try {
-            const newActivity = await axios({
+            await axios({
                 method: 'post',
                 url: 'http://localhost:3001/activity',
                 data: {
@@ -96,5 +96,11 @@ export const createActivity = (activity) => {
             console.log(error);
         }
 
+    }
+};
+
+export const changeDetail = () => {
+    return {
+        type: 'CHANGE_DETAIL'
     }
 };

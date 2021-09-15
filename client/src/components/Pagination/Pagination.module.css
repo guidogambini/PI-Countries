@@ -8,7 +8,7 @@
 .pagination {
     margin-left: -1em;
     margin-right: 2em;
-    margin-top: -2.5em;
+    margin-top: -2.5em; 
 }
 
 .boton {
@@ -26,4 +26,11 @@
     background-color: rgba(255, 255, 255, 0.486);
     color: black;
     transition: 0.25s;
+}
+
+.boton:focus {
+    background: rgb(255, 255, 255);
+    color: black;
+    width: 2.7rem;
+    height: 2.7rem;
 }

@@ -32,7 +32,7 @@
 }
 
 .flag {
-    height: 220px;
+    height: 250px;
     margin-top: 10em;
     margin-bottom: 10em;
     margin-right: 10em;
@@ -40,39 +40,20 @@
     border-radius: 55px 5px 50px;
 }
 
-.boton {
-    background-color: rgba(255, 255, 255, 0.384);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    width: 6rem;
-    height: 2.5rem;
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    align-items: center;
-    color: rgba(5, 5, 5, 0.849);
-    margin-right: 5em;
-    margin-bottom: 25em;
-}
 
-.boton:hover {
-    background-color: rgba(255, 255, 255, 0.486);
-    color: black;
-    transition: 0.25s;
-}
 
 .pais {
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 30px;
 }
 
 .activity {
     margin-top: 10em;
     margin-bottom: -7em;
-    margin-left: 2em;
+    margin-left: 1em;
     list-style: none;
     color: rgba(255, 255, 255, 0.877);
-    background-color: rgba(29, 26, 26, 0.945);
+    background-color: rgb(29, 26, 26);
     width: 140px;
     height: 200px;
     display: flex;
@@ -83,6 +64,7 @@
     border: 3px solid rgb(255, 255, 255);
     border-radius: 30px;
     padding: 1.5em;
+    font-weight: bolder;
 }
 
 .title {
@@ -105,4 +87,66 @@
     margin-top: -1.9em;
     margin-bottom: 4.6em;
     justify-content: space-around;
+}
+
+.avion {
+    position: fixed;
+    top: 0em;
+    left: 0em;
+    opacity: 0.4;
+    filter: brightness(44%);
+    width: 100%;
+    height: 100%;
+}
+
+.id {
+    position: fixed;
+    top: -0.5em;
+    left: 0.5em;
+    color: rgba(255, 255, 255, 0.767);
+    letter-spacing: 5.0px;
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.767);
+    padding: 3px;
+    padding-left: 7px;
+}
+
+.icon {
+    position: fixed;
+    bottom: -0.5em;
+    left: 0.5em;
+    color: rgba(255, 255, 255, 0.836);
+    letter-spacing: 5.0px;
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+}
+
+.boton {
+    background-color: rgba(255, 255, 255, 0.384);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 6rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    color: rgba(5, 5, 5, 0.849);
+    margin-right: 5em;
+    margin-bottom: 25em;
+    position: fixed;
+    right: 0em;
+}
+
+.boton:hover {
+    background-color: rgba(255, 255, 255, 0.486);
+    color: black;
+    transition: 0.25s;
+}
+
+.copy {
+    color: blanchedalmond;
+    margin-left: 41.7%;
+    font-size: 13px;
 }

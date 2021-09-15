@@ -7,7 +7,7 @@ import Country from '../Country/Country';
 import Pagination from '../Pagination/Pagination';
 import SearchBar from '../SearchBar/SearchBar';
 import styles from './Home.module.css';
-import { IoReload, IoArrowUp } from "react-icons/io5";
+
 
 
 const Home = () => {
@@ -15,10 +15,11 @@ const Home = () => {
     
     const dispatch = useDispatch();
 
+    
     useEffect(() => {
         dispatch(getCountries())
     }, [dispatch]
-    );
+    )
 
     const countries = useSelector(state => state.countriesLoaded);
 
@@ -33,13 +34,14 @@ const Home = () => {
     const firstCountryIndex = page === 1? lastCountryIndex - countriesInPageOne: lastCountryIndex - countriesInPage;
     const visibleCountries = page === 1? countries.slice(firstCountryIndex, lastCountryIndex): countries.slice(firstCountryIndex-1, lastCountryIndex-1);
 
-    const pagination = (numberOfPage) => {
+    const pagination = (numberOfPage /* = page + 1 */) => {
         
+        /* numberOfPage === -1 ? setPage(page - 1) : */
         setPage(numberOfPage);
 
     };
     
-
+    
 
     function handleOnClick(e) {
 
@@ -58,16 +60,18 @@ const Home = () => {
 
     };
 
+    
+
 
     return (
         <>
-            
+
             <div className={styles.buttons}>
-                <div className={styles.buttons1}>
-                    <button onClick={handleOnClick} className={styles.boton1} ><IoReload /></button>
-                </div>
                 <div className={styles.buttons2}>
-                    <Link to='/activity'><button className={styles.boton2}>Create tourist activity</button></Link>
+                    <Link to='/activity'><button className={styles.boton2}>Let's start your trip!</button></Link>
+                </div>
+                <div className={styles.buttons1}>
+                    <button onClick={handleOnClick} className={styles.boton1} >GlobalApp</button>
                 </div>
                 <div className={styles.countrysearch}>
                     <SearchBar />
@@ -106,6 +110,7 @@ const Home = () => {
                 })}
             </div>
             <Pagination countriesInPage={countriesInPage} countriesTotal={countries.length} pagination={pagination} />
+            <p className={styles.copy}>Copyright © 2021 Global App</p>
         </>
     )
 }

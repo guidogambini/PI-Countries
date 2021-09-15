@@ -28,6 +28,7 @@
 	border: none;
 	transition: all 0.4s ease 0s;
     cursor: pointer;
+    width: 10em;
 }
 
 .buttons2 {
@@ -66,13 +67,17 @@
 
 .boton1 {
     
-    background-color: rgba(56, 50, 50, 0.774);
-    border: none;
+    font-stretch: expanded;
+    letter-spacing: 4.0px;
+    font-family: 'Anton', sans-serif;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 3em;
     cursor: pointer; 
-    font-weight: 600;
+    font-size: 20px;
     width: 8rem;
-    height: 2.5rem;
+    height: 3.5rem;
     color: white;
+    
 }
 
 .boton2 {
@@ -80,10 +85,12 @@
     background-color: rgba(56, 50, 50, 0.774);
     border: none;
     cursor: pointer; 
-    font-weight: 600;
+    font-weight: 200;
+    font-size: 20px;
     width: 20rem;
     height: 2.5rem;
     color: white;
+    font-family: 'Anton', sans-serif;
 }
 
 .boton1:hover, .boton2:hover {
@@ -106,7 +113,7 @@
     justify-content: space-around;
     margin-top: 30px;
     width: 1200px;
-    margin-left: 2em;
+    margin-left: 3.9em;
     height: 35px;
 }
 
@@ -132,4 +139,21 @@
     font-family: 'Merriweather', serif;
     font-weight: bolder;
     background: rgba(255, 255, 255, 0.178);
+}
+
+.fix {
+    position: fixed;
+    left: 3%;
+    top: 82%;
+    color: rgba(255, 251, 251, 0.808);
+    font-stretch: expanded;
+    letter-spacing: 2.0px;
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+}
+
+.copy {
+    color: blanchedalmond;
+    margin-left: 41.7%;
+    font-size: 13px;
 }

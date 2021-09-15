@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './LandingPage.module.css';
-import { IoIosGlobe } from 'react-icons/io';
 import { useDispatch } from 'react-redux';
 import { getCountries } from '../../actions';
 import World from './World.mp4';
