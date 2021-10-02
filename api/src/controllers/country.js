@@ -7,20 +7,21 @@ async function getCountries(req, res, next) {
     try {
         const { name } = req.query;
         if (!name) {
-            const api = await axios.get('https://restcountries.eu/rest/v2/all');
+
+            const api = await axios.get('https://restcountries.com/v3/all');
+
             await api.data.map((c) => Country.findOrCreate({
                 where: {
-                    id: c.alpha3Code
+                    id: c.idd.root + c.idd.suffixes?.map(s => s)
                 },
                 defaults: {
-                    name: c.name, 
-                    id: c.alpha3Code,
-                    flagImg: c.flag, 
-                    capital: c.capital,
+                    id: c.idd.root && c.idd.suffixes ? c.idd.root + c.idd.suffixes?.map(s => s) : '+001',
+                    name: c.name.common,
+                    flagImg: c.flags[1], 
+                    capital: c.capital ? c.capital[0] : null,
                     continent: c.region, 
                     subRegion: c.subregion,
-                    area: c.area, 
-                    poblation: c.population
+                    area: c.area,
                 }
                 }));
             const countries = await Country.findAll({
@@ -31,6 +32,7 @@ async function getCountries(req, res, next) {
                              }
             });
             return res.status(200).send(countries);
+            
         };
 
         const nameCountries = await Country.findAll({

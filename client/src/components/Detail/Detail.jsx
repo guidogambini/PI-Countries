@@ -56,7 +56,7 @@ const Detail = () => {
                     </div>
                 </div> : <p>Loading countries...</p>
             }
-            <h3 className={styles.id}>{id}</h3>
+            <h3 className={styles.id}>{countryDetail[0]?.name.slice(0, 3)}</h3>
             <h3 className={styles.icon}><IoAirplaneOutline /></h3>
             <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="not found" className={styles.avion} />
             <Link to='/home' className={styles.boton}><IoHomeSharp /></Link>

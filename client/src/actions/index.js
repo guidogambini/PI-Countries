@@ -1,13 +1,16 @@
 import axios from 'axios';
 
 
-export const getCountries = () => {
+export const getCountries = (way) => {
     return async function (dispatch) {
         try {
-            const countries = await axios.get('http://localhost:3001/countries');
+            const countries = await axios.get('/countries');
             return dispatch({
                 type: 'GET_COUNTRIES',
-                payload: countries.data
+                payload: {
+                    data: countries.data,
+                    way: way ? way : null
+                }
             })
         } catch (error) {
             console.log(error);
@@ -19,7 +22,7 @@ export const getCountries = () => {
 export const getCountryName = (name) => {
     return async function (dispatch) {
         try {
-            const country = await axios.get(`http://localhost:3001/countries?name=${name}`);
+            const country = await axios.get(`/countries?name=${name}`);
             return dispatch({
                 type: 'GET_COUNTRY_NAME',
                 payload: country.data
@@ -39,7 +42,7 @@ export const getCountryName = (name) => {
 export const getCountryDetail = (id) => {
     return async function (dispatch) {
         try {
-            const country = await axios.get(`http://localhost:3001/countries/${id}`);
+            const country = await axios.get(`/countries/${id}`);
             return dispatch({
                 type: "GET_COUNTRY_DETAIL",
                 payload: country.data
@@ -79,7 +82,7 @@ export const createActivity = (activity) => {
         try {
             await axios({
                 method: 'post',
-                url: 'http://localhost:3001/activity',
+                url: '/activity',
                 data: {
                     name: activity.name,
                     difficulty: parseInt(activity.difficulty),

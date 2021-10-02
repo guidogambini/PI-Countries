@@ -46,7 +46,7 @@ const Home = () => {
     function handleOnClick(e) {
 
         e.preventDefault();
-        dispatch(getCountries());
+        dispatch(getCountries('all'));
         setPage(1);
 
     };
@@ -86,11 +86,11 @@ const Home = () => {
                 </optgroup>    
                 </select>
 
-                <select name='pop' onChange={handleOnSelector} className={styles.pop} >
+                <select name='area' onChange={handleOnSelector} className={styles.pop} >
                 <optgroup className={styles.options}>
-                    <option hidden disabled selected value>Population</option>
-                    <option value='popAsc'>Asc</option>
-                    <option value='popDesc'>Desc</option>
+                    <option hidden disabled selected value>Area</option>
+                    <option value='areaAsc'>Asc</option>
+                    <option value='areaDesc'>Desc</option>
                 </optgroup>
                 </select>
                 <NavBar />

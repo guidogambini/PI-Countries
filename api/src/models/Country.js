@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true
-    }, 
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -18,20 +18,15 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     continent: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     capital: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     subRegion: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING
     },
     area: {
-      type: DataTypes.INTEGER
-    },
-    poblation: {
       type: DataTypes.INTEGER
     }
   });

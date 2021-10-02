@@ -10,11 +10,19 @@ export default function rootReducer(state = initialState, action) {
     switch (action.type) {
 
         case 'GET_COUNTRIES':
+            if (!action.payload.way)
             return {
                 ...state,
-                countriesLoaded: action.payload,
-                allCountries: action.payload
+                countriesLoaded: state.countriesLoaded.length && state.countriesLoaded.length < 243 ? state.countriesLoaded : action.payload.data,
+                allCountries: action.payload.data
             };
+            else if (action.payload.way === 'all') {
+                return {
+                    ...state,
+                    countriesLoaded: action.payload.data,
+                    allCountries: action.payload.data
+                };
+            }
 
         case 'GET_COUNTRY_NAME':
             
@@ -96,24 +104,24 @@ export default function rootReducer(state = initialState, action) {
                     }
             }
 
-            else if (action.payload.orderType === 'pop') {
+            else if (action.payload.orderType === 'area') {
 
-                const sortedPop = action.payload.order === 'popAsc'? 
+                const sortedArea = action.payload.order === 'areaAsc'? 
                     state.countriesLoaded.sort((a, b) => {
-                        if (a.poblation > b.poblation) {return 1}
-                        else if (b.poblation > a.poblation) {return -1}
+                        if (a.area > b.area) {return 1}
+                        else if (b.area > a.area) {return -1}
                         else return 0;
                     }) :
 
                     state.countriesLoaded.sort((a, b) => {
-                        if (a.poblation > b.poblation) {return -1}
-                        else if (b.poblation > a.poblation) {return 1}
+                        if (a.area > b.area) {return -1}
+                        else if (b.area > a.area) {return 1}
                         else return 0;
                     })
 
                     return {
                         ...state,
-                        countriesLoaded: sortedPop
+                        countriesLoaded: sortedArea
                     }
             }
 
