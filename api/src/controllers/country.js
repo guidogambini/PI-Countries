@@ -10,11 +10,17 @@ async function getCountries(req, res, next) {
 
             const api = await axios.get('https://restcountries.com/v3/all');
 
-            await api.data.map((c) => Country.findOrCreate({
-                where: {
-                    id: c.idd.root + c.idd.suffixes?.map(s => s)
-                },
-                defaults: {
+            const oldCountries = await Country.findAll({
+                include: { model: Activity,
+                           attributes: ['name', 'difficulty', 'duration', 'season'],
+                           through: {
+                              attributes: [] }
+                         }
+        });
+
+            if (oldCountries.length) return res.status(200).send(oldCountries);
+
+            await api.data.forEach((c) => Country.Create({
                     id: c.idd.root && c.idd.suffixes ? c.idd.root + c.idd.suffixes?.map(s => s) : '+001',
                     name: c.name.common,
                     flagImg: c.flags[1], 
@@ -22,8 +28,8 @@ async function getCountries(req, res, next) {
                     continent: c.region, 
                     subRegion: c.subregion,
                     area: c.area,
-                }
                 }));
+
             const countries = await Country.findAll({
                     include: { model: Activity,
                                attributes: ['name', 'difficulty', 'duration', 'season'],
@@ -31,9 +37,11 @@ async function getCountries(req, res, next) {
                                   attributes: [] }
                              }
             });
-            return res.status(200).send(countries);
-            
-        };
+           
+            return res.status(200).send(countries)
+        }
+
+        else {
 
         const nameCountries = await Country.findAll({
             where: {
@@ -45,6 +53,7 @@ async function getCountries(req, res, next) {
         nameCountries.length ?
         res.status(200).send(nameCountries) :
         res.status(404).json({error: 'Country not found'});
+    }
 
     } catch (error) {
         next(error);
